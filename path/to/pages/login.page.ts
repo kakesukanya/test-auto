@@ -65,4 +65,14 @@ export class LoginPage {
   private logStep(message: string): void {
     console.log(`STEP: ${message}`);
   }
+
+  /**
+   * Click the Sign Up Link to navigate to the signup page.
+   */
+  async clickSignUpLink(): Promise<void> {
+    this.logStep('Click the Sign Up Link');
+    const signUpLink = this.page.locator('linkText=Sign Up');
+    await signUpLink.waitFor({ state: 'visible' });
+    await signUpLink.click();
+  }
 }
